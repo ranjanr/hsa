@@ -163,11 +163,6 @@ export default function Home() {
 
           {/* Hero Section */}
           <section className="landing-hero" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <img 
-              src="/logo.png" 
-              alt="HSA Large Logo" 
-              style={{ width: "120px", height: "120px", borderRadius: "24px", marginBottom: "24px", boxShadow: "0 10px 40px rgba(99, 102, 241, 0.3)" }} 
-            />
             <span className="badge badge-info" style={{ marginBottom: "16px", padding: "6px 12px", fontSize: "0.75rem" }}>
               {isEs ? "Enfoque en el Área de la Bahía" : "Bay Area Protection Focus"}
             </span>
