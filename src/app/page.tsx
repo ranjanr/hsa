@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Settings, ShieldAlert, Scale, Calculator, FileSignature, Clock, Landmark, User, ShieldCheck, ArrowRight, HelpCircle, AlertCircle, MessageSquare, DollarSign, ChevronLeft, Wrench } from "lucide-react";
+import { Settings, ShieldAlert, Scale, Calculator, FileSignature, Clock, Landmark, User, ShieldCheck, ArrowRight, HelpCircle, AlertCircle, MessageSquare, DollarSign, ChevronLeft, Wrench, Menu, X } from "lucide-react";
 import SettingsModal from "@/components/SettingsModal";
 import NoticeInterpreter from "@/components/NoticeInterpreter";
 import RentValidator from "@/components/RentValidator";
@@ -9,6 +9,7 @@ import LetterGenerator from "@/components/LetterGenerator";
 import TimelineBuilder from "@/components/TimelineBuilder";
 import ResourceNavigator from "@/components/ResourceNavigator";
 import RepairsNavigator from "@/components/RepairsNavigator";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -21,6 +22,7 @@ export default function Home() {
   const [apiKey, setApiKey] = useState("");
   const [activeTab, setActiveTab] = useState("notice");
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Cross-tab interaction states
   const [triggeredLetterDetails, setTriggeredLetterDetails] = useState("");
@@ -113,11 +115,20 @@ export default function Home() {
         <div className="landing-container animated-fade-in">
           {/* Header */}
           <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px" }}>
-            <div>
-              <h1 style={{ fontSize: "1.8rem", margin: 0 }}>HSA</h1>
-              <p style={{ margin: 0, fontSize: "0.8rem", color: "var(--text-muted)", fontWeight: "600" }}>
-                {isEs ? "Estabilidad de Vivienda" : "Housing Stability Assistant"}
-              </p>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <img 
+                src="/logo.png" 
+                alt="HSA Logo" 
+                style={{ width: "42px", height: "42px", borderRadius: "8px", boxShadow: "0 4px 20px rgba(99, 102, 241, 0.25)" }} 
+              />
+              <div>
+                <h1 style={{ fontSize: "1.6rem", margin: 0, background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                  HSA
+                </h1>
+                <p style={{ margin: 0, fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: "600" }}>
+                  {isEs ? "Estabilidad de Vivienda" : "Housing Stability Assistant"}
+                </p>
+              </div>
             </div>
             
             <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
@@ -151,7 +162,12 @@ export default function Home() {
           </header>
 
           {/* Hero Section */}
-          <section className="landing-hero">
+          <section className="landing-hero" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <img 
+              src="/logo.png" 
+              alt="HSA Large Logo" 
+              style={{ width: "120px", height: "120px", borderRadius: "24px", marginBottom: "24px", boxShadow: "0 10px 40px rgba(99, 102, 241, 0.3)" }} 
+            />
             <span className="badge badge-info" style={{ marginBottom: "16px", padding: "6px 12px", fontSize: "0.75rem" }}>
               {isEs ? "Enfoque en el Área de la Bahía" : "Bay Area Protection Focus"}
             </span>
@@ -319,55 +335,83 @@ export default function Home() {
           </section>
 
           {/* Landing Footer */}
-          <footer style={{ marginTop: "80px", padding: "20px 0", borderTop: "1px solid var(--border-color)", textAlign: "center", fontSize: "0.8rem", color: "var(--text-muted)" }}>
-            <div>
-              {isEs 
-                ? "Asistente de Estabilidad de Vivienda del Área de la Bahía (San José, San Francisco, Oakland)." 
-                : "Bay Area Housing Stability Assistant (San Jose, San Francisco, Oakland)."}
-            </div>
-          </footer>
+          <Footer language={language} />
         </div>
       ) : (
         /* Portal Dashboard Layout */
         <div className="app-container">
           {/* Header */}
-          <header className="no-print" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-            <button 
-              onClick={navigateToLanding}
-              style={{ 
-                background: "none", 
-                border: "none", 
-                color: "var(--text-secondary)", 
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                gap: "4px",
-                fontSize: "0.85rem",
-                fontWeight: "600",
-                padding: "4px 0"
-              }}
-            >
-              <ChevronLeft size={16} />
-              {isEs ? "Inicio" : "Exit Portal"}
-            </button>
+          <header className="no-print" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", background: "var(--panel-bg)", border: "1px solid var(--panel-border)", padding: "12px 16px", borderRadius: "var(--radius-lg)", backdropFilter: "blur(12px)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <img 
+                src="/logo.png" 
+                alt="HSA Logo" 
+                style={{ width: "32px", height: "32px", borderRadius: "6px" }} 
+              />
+              <div>
+                <span 
+                  onClick={navigateToLanding}
+                  style={{ fontSize: "1.1rem", fontWeight: "800", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", cursor: "pointer" }}
+                >
+                  HSA
+                </span>
+              </div>
+            </div>
 
-            <button 
-              onClick={() => setSettingsOpen(true)}
-              style={{ 
-                background: "var(--panel-bg)", 
-                border: "1px solid var(--panel-border)", 
-                borderRadius: "50%", 
-                width: "36px", 
-                height: "36px", 
-                display: "flex", 
-                alignItems: "center", 
-                justifyContent: "center", 
-                color: "var(--text-primary)", 
-                cursor: "pointer",
-              }}
-            >
-              <Settings size={18} />
-            </button>
+            {/* Desktop Only Navigation tabs in header */}
+            <div className="desktop-only" style={{ display: "flex", gap: "8px" }}>
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
+                  onClick={() => setActiveTab(tab.id)}
+                  style={{ padding: "8px 12px", fontSize: "0.8rem", borderRadius: "16px" }}
+                >
+                  {tab.icon}
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+              {/* Desktop exit portal */}
+              <button 
+                onClick={navigateToLanding}
+                className="btn btn-secondary desktop-only"
+                style={{ width: "auto", padding: "8px 12px", fontSize: "0.85rem", height: "34px", borderRadius: "17px" }}
+              >
+                {isEs ? "Inicio" : "Exit Portal"}
+              </button>
+
+              <button 
+                onClick={() => setSettingsOpen(true)}
+                className="desktop-only"
+                style={{ 
+                  background: "none", 
+                  border: "none", 
+                  color: "var(--text-secondary)", 
+                  cursor: "pointer",
+                }}
+              >
+                <Settings size={18} />
+              </button>
+
+              {/* Mobile menu trigger */}
+              <button 
+                onClick={() => setMobileMenuOpen(true)}
+                className="mobile-only"
+                style={{ 
+                  background: "none", 
+                  border: "none", 
+                  color: "var(--text-primary)", 
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center"
+                }}
+              >
+                <Menu size={24} />
+              </button>
+            </div>
           </header>
 
           <div className="no-print" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "20px" }}>
@@ -393,20 +437,6 @@ export default function Home() {
               {role === "tenant" ? (isEs ? "Inquilino" : "Tenant") : (isEs ? "Arrendador" : "Landlord")}
             </span>
           </div>
-
-          {/* Tabs Bar */}
-          <nav className="tabs-nav no-print">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
-                onClick={() => setActiveTab(tab.id)}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
-            ))}
-          </nav>
 
           {/* Portal Main Views */}
           <main style={{ flex: 1 }}>
@@ -449,14 +479,84 @@ export default function Home() {
             )}
           </main>
 
-          {/* Sticky Footer */}
-          <footer className="no-print" style={{ marginTop: "24px", padding: "12px", borderTop: "1px solid var(--border-color)", textAlign: "center", fontSize: "0.75rem", color: "var(--text-muted)" }}>
-            <div>
-              {isEs 
-                ? "© 2026 Asistente de Vivienda de la Bahía. Esto es una herramienta informativa, no constituye asesoría legal formal." 
-                : "© 2026 Bay Area Housing Stability Assistant. This tool is for informational support and does not constitute official legal counsel."}
+          {/* Reusable Rich Footer */}
+          <Footer language={language} />
+
+          {/* Mobile Navigation Drawer */}
+          {mobileMenuOpen && (
+            <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)} />
+          )}
+          <div className={`mobile-menu-drawer ${mobileMenuOpen ? "open" : ""}`}>
+            <div className="mobile-menu-header">
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <img src="/logo.png" style={{ width: "28px", height: "28px", borderRadius: "4px" }} alt="Logo" />
+                <span style={{ fontWeight: "700" }}>Menu</span>
+              </div>
+              <button onClick={() => setMobileMenuOpen(false)} style={{ background: "none", border: "none", color: "var(--text-secondary)", cursor: "pointer" }}>
+                <X size={20} />
+              </button>
             </div>
-          </footer>
+            
+            <div className="mobile-menu-items">
+              {/* Role toggle option in mobile menu */}
+              <div className="form-group" style={{ marginBottom: "20px" }}>
+                <label className="form-label">{isEs ? "Rol Activo" : "Active Role"}</label>
+                <select 
+                  className="form-select" 
+                  value={role} 
+                  onChange={(e) => {
+                    handleRoleChange(e.target.value as any);
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  <option value="tenant">{isEs ? "Inquilino" : "Tenant"}</option>
+                  <option value="landlord">{isEs ? "Arrendador" : "Landlord"}</option>
+                </select>
+              </div>
+
+              {/* Navigation items in mobile menu */}
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
+                  onClick={() => {
+                    setActiveTab(tab.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{ justifyContent: "flex-start", width: "100%", borderRadius: "8px" }}
+                >
+                  {tab.icon}
+                  {tab.label}
+                </button>
+              ))}
+
+              <div style={{ borderTop: "1px solid var(--border-color)", paddingTop: "20px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                <button 
+                  className="btn btn-secondary" 
+                  onClick={() => {
+                    setSettingsOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{ display: "flex", gap: "6px", fontSize: "0.85rem", justifyContent: "flex-start" }}
+                >
+                  <Settings size={14} />
+                  {isEs ? "Configuraciones" : "Settings"}
+                </button>
+                
+                <button 
+                  className="btn btn-secondary" 
+                  onClick={() => {
+                    navigateToLanding();
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{ display: "flex", gap: "6px", fontSize: "0.85rem", background: "rgba(239, 68, 68, 0.1)", color: "var(--danger)", borderColor: "rgba(239, 68, 68, 0.2)", justifyContent: "flex-start" }}
+                >
+                  <ChevronLeft size={14} />
+                  {isEs ? "Salir al Inicio" : "Exit Portal"}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
