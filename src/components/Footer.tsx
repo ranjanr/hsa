@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ExternalLink, GraduationCap, Building2 } from "lucide-react";
 
 interface FooterProps {
   language: "en" | "es";
@@ -17,18 +18,52 @@ export default function Footer({ language }: FooterProps) {
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <img 
               src="/logo.png" 
-              alt="HSA Logo" 
+              alt="LeaseLink Logo" 
               style={{ width: "32px", height: "32px", borderRadius: "6px" }} 
             />
             <span style={{ fontSize: "1.1rem", fontWeight: "800", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              HSA
+              LeaseLink
             </span>
           </div>
-          <p style={{ fontSize: "0.825rem", color: "var(--text-secondary)", marginTop: "10px", lineHeight: "1.5" }}>
+          <p style={{ fontSize: "0.825rem", color: "var(--text-secondary)", marginTop: "6px", lineHeight: "1.5" }}>
             {isEs 
               ? "Asistente de Estabilidad de Vivienda del Área de la Bahía. Reduciendo la asimetría legal para inquilinos y pequeños propietarios en San José, San Francisco y Oakland."
               : "Bay Area Housing Stability Assistant. Empowering tenants and small landlords to resolve housing conflicts under California Civil Code through smart AI assistance."}
           </p>
+        </div>
+
+        {/* Internship & Academic Collaboration Col */}
+        <div className="footer-col">
+          <h3>{isEs ? "Iniciativa Académica" : "Internship Initiative"}</h3>
+          <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", lineHeight: "1.5", marginBottom: "12px" }}>
+            {isEs 
+              ? "Desarrollado como parte de la Pasantía de Verano de Growth Sector en colaboración con San José State University (SJSU)."
+              : "Created as part of the Growth Sector Summer Internship in collaboration with San José State University (SJSU)."}
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <a 
+              href="https://www.growthsector.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="partner-link"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "0.825rem", fontWeight: "600", color: "#818cf8" }}
+            >
+              <Building2 size={15} />
+              <span>Growth Sector</span>
+              <ExternalLink size={12} style={{ opacity: 0.7 }} />
+            </a>
+            <a 
+              href="https://www.sjsu.edu" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="partner-link"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "0.825rem", fontWeight: "600", color: "#818cf8" }}
+            >
+              <GraduationCap size={15} />
+              <span>San José State University (SJSU)</span>
+              <ExternalLink size={12} style={{ opacity: 0.7 }} />
+            </a>
+          </div>
         </div>
 
         {/* resources links col */}
@@ -73,11 +108,13 @@ export default function Footer({ language }: FooterProps) {
       <div className="footer-bottom">
         <div>
           {isEs 
-            ? "© 2026 Asistente de Vivienda de la Bahía. Todos los derechos reservados." 
-            : "© 2026 Bay Area Housing Stability Assistant. All rights reserved."}
+            ? "© 2026 LeaseLink. Todos los derechos reservados." 
+            : "© 2026 LeaseLink. All rights reserved."}
         </div>
         <div>
-          {isEs ? "Desarrollado para la Estabilidad Habitacional" : "Built for Bay Area Housing Equity"}
+          {isEs 
+            ? "Pasantía de Verano Growth Sector × SJSU" 
+            : "Growth Sector Summer Internship × SJSU"}
         </div>
       </div>
     </footer>

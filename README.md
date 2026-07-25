@@ -1,6 +1,6 @@
-# Rent & Housing Stability Assistant (HSA)
+# LeaseLink
 
-The **Rent & Housing Stability Assistant (HSA)** is a mobile-first web application designed for Bay Area tenants and small landlords to navigate complex California rental regulations, notice procedures, habitability guidelines, and dispute resolutions. 
+The **LeaseLink** application is a mobile-first web application designed for Bay Area tenants and small landlords to navigate complex California rental regulations, notice procedures, habitability guidelines, and dispute resolutions. 
 
 By providing automated notice audits, rent cap calculators, letter generators, evidence timeline builders, and resource navigation, the assistant reduces legal friction and helps prevent avoidable evictions.
 

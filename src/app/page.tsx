@@ -90,7 +90,7 @@ export default function Home() {
       <div style={{ minHeight: "100vh", backgroundColor: "#080c14", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }}>
         <div style={{ textAlign: "center" }}>
           <ShieldAlert size={40} style={{ animation: "pulse 2s infinite", color: "#6366f1", marginBottom: "12px" }} />
-          <div>Loading HSA Dashboard...</div>
+          <div>Loading LeaseLink Dashboard...</div>
         </div>
       </div>
     );
@@ -118,12 +118,12 @@ export default function Home() {
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <img 
                 src="/logo.png" 
-                alt="HSA Logo" 
+                alt="LeaseLink Logo" 
                 style={{ width: "42px", height: "42px", borderRadius: "8px", boxShadow: "0 4px 20px rgba(99, 102, 241, 0.25)" }} 
               />
               <div>
                 <h1 style={{ fontSize: "1.6rem", margin: 0, background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  HSA
+                  LeaseLink
                 </h1>
                 <p style={{ margin: 0, fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: "600" }}>
                   {isEs ? "Estabilidad de Vivienda" : "Housing Stability Assistant"}
@@ -340,7 +340,7 @@ export default function Home() {
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <img 
                 src="/logo.png" 
-                alt="HSA Logo" 
+                alt="LeaseLink Logo" 
                 style={{ width: "32px", height: "32px", borderRadius: "6px" }} 
               />
               <div>
@@ -348,7 +348,7 @@ export default function Home() {
                   onClick={navigateToLanding}
                   style={{ fontSize: "1.1rem", fontWeight: "800", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", cursor: "pointer" }}
                 >
-                  HSA
+                  LeaseLink
                 </span>
               </div>
             </div>

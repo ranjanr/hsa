@@ -622,9 +622,16 @@ p {
 
 .footer-grid-layout {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.4fr 1.3fr 1.1fr 1fr;
+  gap: 32px;
   margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .footer-grid-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
 }
 
 @media (max-width: 768px) {
