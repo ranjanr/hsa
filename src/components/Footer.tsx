@@ -15,13 +15,13 @@ export default function Footer({ language }: FooterProps) {
       <div className="footer-grid-layout">
         {/* Brand Col */}
         <div className="footer-col" style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <img 
               src="/logo.png" 
               alt="LeaseLink Logo" 
-              style={{ width: "32px", height: "32px", borderRadius: "6px" }} 
+              style={{ width: "44px", height: "44px", borderRadius: "8px" }} 
             />
-            <span style={{ fontSize: "1.1rem", fontWeight: "800", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            <span style={{ fontSize: "1.5rem", fontWeight: "800", letterSpacing: "-0.01em", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               LeaseLink
             </span>
           </div>

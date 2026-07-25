@@ -115,17 +115,17 @@ export default function Home() {
         <div className="landing-container animated-fade-in">
           {/* Header */}
           <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
               <img 
                 src="/logo.png" 
                 alt="LeaseLink Logo" 
-                style={{ width: "42px", height: "42px", borderRadius: "8px", boxShadow: "0 4px 20px rgba(99, 102, 241, 0.25)" }} 
+                style={{ width: "56px", height: "56px", borderRadius: "10px", boxShadow: "0 4px 24px rgba(99, 102, 241, 0.3)" }} 
               />
               <div>
-                <h1 style={{ fontSize: "1.6rem", margin: 0, background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                <h1 style={{ fontSize: "2.1rem", fontWeight: "800", margin: 0, letterSpacing: "-0.02em", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                   LeaseLink
                 </h1>
-                <p style={{ margin: 0, fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: "600" }}>
+                <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: "600" }}>
                   {isEs ? "Estabilidad de Vivienda" : "Housing Stability Assistant"}
                 </p>
               </div>
@@ -162,14 +162,14 @@ export default function Home() {
           </header>
 
           {/* Hero Section */}
-          <section className="landing-hero" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <span className="badge badge-info" style={{ marginBottom: "16px", padding: "6px 12px", fontSize: "0.75rem" }}>
+          <section className="landing-hero" style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "30px 0 20px 0" }}>
+            <span className="badge badge-info" style={{ marginBottom: "14px", padding: "6px 14px", fontSize: "0.75rem" }}>
               {isEs ? "Enfoque en el Área de la Bahía" : "Bay Area Protection Focus"}
             </span>
-            <h1 style={{ fontSize: "2.8rem", marginBottom: "16px" }}>
+            <h2 style={{ fontSize: "1.9rem", fontWeight: "700", lineHeight: "1.3", marginBottom: "12px", color: "var(--text-primary)", textAlign: "center" }}>
               {isEs ? "Vivienda Equitativa, Simplificada" : "Balanced Housing Stability"}
-            </h1>
-            <p style={{ maxWidth: "600px", margin: "0 auto 30px auto", fontSize: "1.1rem", color: "var(--text-secondary)" }}>
+            </h2>
+            <p style={{ maxWidth: "600px", margin: "0 auto 24px auto", fontSize: "0.95rem", lineHeight: "1.6", color: "var(--text-secondary)", textAlign: "center" }}>
               {isEs 
                 ? "Una plataforma de asistencia inteligente para inquilinos y pequeños propietarios de California. Entienda sus derechos, verifique el cumplimiento normativo y resuelva conflictos de alquiler antes de que escalen."
                 : "A mobile-first AI assistant for California tenants and small landlords. Navigate eviction notices, calculate lawful rent increases, and draft formal responses before issues escalate."}
@@ -337,16 +337,16 @@ export default function Home() {
         <div className="app-container">
           {/* Header */}
           <header className="no-print" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", background: "var(--panel-bg)", border: "1px solid var(--panel-border)", padding: "12px 16px", borderRadius: "var(--radius-lg)", backdropFilter: "blur(12px)" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <img 
                 src="/logo.png" 
                 alt="LeaseLink Logo" 
-                style={{ width: "32px", height: "32px", borderRadius: "6px" }} 
+                style={{ width: "42px", height: "42px", borderRadius: "8px" }} 
               />
               <div>
                 <span 
                   onClick={navigateToLanding}
-                  style={{ fontSize: "1.1rem", fontWeight: "800", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", cursor: "pointer" }}
+                  style={{ fontSize: "1.45rem", fontWeight: "800", letterSpacing: "-0.01em", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", cursor: "pointer" }}
                 >
                   LeaseLink
                 </span>
