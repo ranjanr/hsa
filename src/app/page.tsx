@@ -111,7 +111,7 @@ export default function Home() {
   ];
 
   return (
-    <div className={`theme-${role}`}>
+    <div className={view === "landing" ? "theme-tenant" : `theme-${role}`}>
       {view === "landing" ? (
         /* Landing Page Layout */
         <div className="landing-container animated-fade-in">
