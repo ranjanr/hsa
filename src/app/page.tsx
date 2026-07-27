@@ -124,12 +124,12 @@ export default function Home() {
                 style={{ width: "56px", height: "56px", borderRadius: "10px", boxShadow: "0 4px 24px rgba(99, 102, 241, 0.3)" }} 
               />
               <div>
+                <p style={{ margin: "0 0 2px 0", fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: "600" }}>
+                  {isEs ? "Conectando a inquilinos y arrendadores para una vivienda estable." : "Connecting tenants and landlords for stable housing."}
+                </p>
                 <h1 style={{ fontSize: "2.1rem", fontWeight: "800", margin: 0, letterSpacing: "-0.02em", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                   LeaseLink
                 </h1>
-                <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: "600" }}>
-                  {isEs ? "Estabilidad de Vivienda" : "Housing Stability Assistant"}
-                </p>
               </div>
             </div>
             
@@ -218,8 +218,8 @@ export default function Home() {
                 </h2>
                 <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
                   {isEs 
-                    ? "Audite el cumplimiento de sus notificaciones escritas, verifique límites legales de renta y redacte avisos de entrada de 24 horas."
-                    : "Audit your notice text for legal compliance, verify maximum allowable rent increases, and draft valid property entry reminders."}
+                    ? "Genere contratos de arrendamiento residenciales en CA, audite el cumplimiento de sus notificaciones y verifique límites de renta."
+                    : "Generate CA-compliant lease agreements, audit your notice text for legal compliance, and verify maximum allowable rent increases."}
                 </p>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", color: "#34d399", zIndex: 1, marginTop: "20px" }}>
@@ -306,6 +306,16 @@ export default function Home() {
                 </h3>
                 <p style={{ fontSize: "0.85rem" }}>
                   {isEs ? "Valide topes según el ARO de San José (5%) o el límite de California AB 1482 (8.8% para la Bahía)." : "Validate rent increases using statewide AB 1482 formulas or San Jose local ARO ordinances."}
+                </p>
+              </div>
+
+              <div className="card">
+                <h3 style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <FileText size={18} style={{ color: "var(--accent)" }} />
+                  {isEs ? "Generador de Contratos" : "CA Lease Generator"}
+                </h3>
+                <p style={{ fontSize: "0.85rem" }}>
+                  {isEs ? "Cree contratos de arrendamiento residenciales con topes de depósito AB 12 y divulgaciones de ley AB 1482." : "Generate CA-compliant lease agreements with AB 1482 disclosures and AB 12 deposit limits."}
                 </p>
               </div>
 
