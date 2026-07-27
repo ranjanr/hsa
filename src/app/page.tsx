@@ -124,12 +124,12 @@ export default function Home() {
                 style={{ width: "56px", height: "56px", borderRadius: "10px", boxShadow: "0 4px 24px rgba(99, 102, 241, 0.3)" }} 
               />
               <div>
-                <p style={{ margin: "0 0 2px 0", fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: "600" }}>
-                  {isEs ? "Conectando a inquilinos y arrendadores para una vivienda estable." : "Connecting tenants and landlords for stable housing."}
-                </p>
-                <h1 style={{ fontSize: "2.1rem", fontWeight: "800", margin: 0, letterSpacing: "-0.02em", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                <h1 style={{ fontSize: "2.1rem", fontWeight: "800", margin: "0 0 2px 0", letterSpacing: "-0.02em", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                   LeaseLink
                 </h1>
+                <p style={{ margin: 0, fontSize: "1.15rem", color: "var(--text-secondary)", fontWeight: "600", lineHeight: "1.3" }}>
+                  {isEs ? "Conectando a inquilinos y arrendadores para una vivienda estable." : "Connecting tenants and landlords for stable housing."}
+                </p>
               </div>
             </div>
             
