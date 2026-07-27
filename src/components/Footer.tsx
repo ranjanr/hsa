@@ -19,7 +19,7 @@ export default function Footer({ language }: FooterProps) {
             <img 
               src="/logo.png" 
               alt="LeaseLink Logo" 
-              style={{ width: "44px", height: "44px", borderRadius: "8px" }} 
+              style={{ width: "44px", height: "44px", borderRadius: "50%", objectFit: "cover" }} 
             />
             <span style={{ fontSize: "1.5rem", fontWeight: "800", letterSpacing: "-0.01em", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               LeaseLink

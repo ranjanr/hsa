@@ -121,7 +121,7 @@ export default function Home() {
               <img 
                 src="/logo.png" 
                 alt="LeaseLink Logo" 
-                style={{ width: "56px", height: "56px", borderRadius: "10px", boxShadow: "0 4px 24px rgba(99, 102, 241, 0.3)" }} 
+                style={{ width: "56px", height: "56px", borderRadius: "50%", objectFit: "cover", boxShadow: "0 4px 24px rgba(99, 102, 241, 0.3)" }} 
               />
               <div>
                 <h1 style={{ fontSize: "2.1rem", fontWeight: "800", margin: "0 0 2px 0", letterSpacing: "-0.02em", background: "var(--gradient-hero)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
@@ -353,7 +353,7 @@ export default function Home() {
               <img 
                 src="/logo.png" 
                 alt="LeaseLink Logo" 
-                style={{ width: "42px", height: "42px", borderRadius: "8px" }} 
+                style={{ width: "42px", height: "42px", borderRadius: "50%", objectFit: "cover" }} 
               />
               <div>
                 <span 
