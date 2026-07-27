@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Settings, ShieldAlert, Scale, Calculator, FileSignature, Clock, Landmark, User, ShieldCheck, ArrowRight, HelpCircle, AlertCircle, MessageSquare, DollarSign, ChevronLeft, Wrench, Menu, X } from "lucide-react";
+import { Settings, ShieldAlert, Scale, Calculator, FileSignature, Clock, Landmark, User, ShieldCheck, ArrowRight, HelpCircle, AlertCircle, MessageSquare, DollarSign, ChevronLeft, Wrench, Menu, X, FileText } from "lucide-react";
 import SettingsModal from "@/components/SettingsModal";
 import NoticeInterpreter from "@/components/NoticeInterpreter";
 import RentValidator from "@/components/RentValidator";
@@ -9,6 +9,7 @@ import LetterGenerator from "@/components/LetterGenerator";
 import TimelineBuilder from "@/components/TimelineBuilder";
 import ResourceNavigator from "@/components/ResourceNavigator";
 import RepairsNavigator from "@/components/RepairsNavigator";
+import LeaseGenerator from "@/components/LeaseGenerator";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -101,6 +102,7 @@ export default function Home() {
   // Navigation Tabs for Tenant vs Landlord Portals
   const tabs = [
     { id: "notice", label: isEs ? "Aviso" : "Notice", icon: role === "tenant" ? <ShieldAlert size={16} /> : <ShieldCheck size={16} /> },
+    { id: "lease", label: isEs ? "Contrato" : "Lease", icon: <FileText size={16} /> },
     { id: "rent", label: isEs ? "Alquiler" : "Rent", icon: <Calculator size={16} /> },
     { id: "repairs", label: isEs ? "Reparación" : "Repairs", icon: <Wrench size={16} /> },
     { id: "letter", label: isEs ? "Carta" : "Letter", icon: <FileSignature size={16} /> },
@@ -467,6 +469,10 @@ export default function Home() {
 
             {activeTab === "timeline" && (
               <TimelineBuilder language={language} />
+            )}
+
+            {activeTab === "lease" && (
+              <LeaseGenerator language={language} role={role} />
             )}
 
             {activeTab === "resources" && (
