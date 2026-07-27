@@ -411,7 +411,7 @@ export default function Home() {
             </div>
           </header>
 
-          <div className="no-print" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "20px" }}>
+          <div className={`no-print portal-main-content ${activeTab === "lease" ? "wide-tab" : ""}`} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "20px" }}>
             <div>
               <h1 style={{ fontSize: "1.4rem", margin: 0 }}>
                 {role === "tenant" ? (isEs ? "Portal del Inquilino" : "Tenant Portal") : (isEs ? "Portal del Arrendador" : "Landlord Portal")}
@@ -436,7 +436,7 @@ export default function Home() {
           </div>
 
           {/* Portal Main Views */}
-          <main style={{ flex: 1 }}>
+          <main className={`portal-main-content ${activeTab === "lease" ? "wide-tab" : ""}`} style={{ flex: 1 }}>
             {activeTab === "notice" && (
               <NoticeInterpreter language={language} region={region} role={role} />
             )}

@@ -106,6 +106,18 @@ body {
   padding: 40px 24px;
 }
 
+/* Portal Main Content Form & Card Width Constraint */
+.portal-main-content {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  transition: max-width 0.3s ease;
+}
+
+.portal-main-content.wide-tab {
+  max-width: 1050px;
+}
+
 .card {
   background: var(--panel-bg);
   backdrop-filter: blur(16px);
