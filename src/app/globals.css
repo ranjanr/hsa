@@ -83,17 +83,25 @@ body {
 
 /* Layout Utilities */
 .app-container {
-  max-width: 480px; /* Mobile first for portal views */
+  max-width: 1150px;
+  width: 100%;
   margin: 0 auto;
   min-height: 100vh;
-  padding: 16px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .app-container {
+    max-width: 100%;
+    padding: 16px 12px;
+  }
+}
+
 .landing-container {
-  max-width: 1000px; /* Standard wide screen desktop/tablet for landing page */
+  max-width: 1150px;
   margin: 0 auto;
   padding: 40px 24px;
 }

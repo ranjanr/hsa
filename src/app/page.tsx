@@ -356,7 +356,7 @@ export default function Home() {
             </div>
 
             {/* Desktop Only Navigation tabs in header */}
-            <div className="desktop-only" style={{ display: "flex", gap: "8px" }}>
+            <div className="desktop-only" style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
