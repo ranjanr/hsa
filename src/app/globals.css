@@ -108,7 +108,7 @@ body {
 
 /* Portal Main Content Form & Card Width Constraint */
 .portal-main-content {
-  max-width: 800px;
+  max-width: 740px;
   width: 100%;
   margin: 0 auto;
   transition: max-width 0.3s ease;
@@ -124,7 +124,7 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--panel-border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 20px 22px;
   margin-bottom: 20px;
   box-shadow: var(--shadow-premium);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
@@ -244,14 +244,14 @@ p {
 
 /* Inputs & Forms */
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .form-label {
   display: block;
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   color: var(--text-primary);
 }
 
@@ -261,8 +261,8 @@ p {
   border: 1px solid var(--input-border);
   border-radius: var(--radius-md);
   color: var(--text-primary);
-  padding: 12px;
-  font-size: 0.95rem;
+  padding: 9px 12px;
+  font-size: 0.875rem;
   transition: all 0.2s ease;
   outline: none;
 }

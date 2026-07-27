@@ -168,10 +168,10 @@ export default function Home() {
             <span className="badge badge-info" style={{ marginBottom: "14px", padding: "6px 14px", fontSize: "0.75rem" }}>
               {isEs ? "Enfoque en el Área de la Bahía" : "Bay Area Protection Focus"}
             </span>
-            <h2 style={{ fontSize: "1.9rem", fontWeight: "700", lineHeight: "1.3", marginBottom: "12px", color: "var(--text-primary)", textAlign: "center" }}>
+            <h2 style={{ fontSize: "2.15rem", fontWeight: "800", lineHeight: "1.25", marginBottom: "12px", color: "var(--text-primary)", textAlign: "center" }}>
               {isEs ? "Vivienda Equitativa, Simplificada" : "Balanced Housing Stability"}
             </h2>
-            <p style={{ maxWidth: "600px", margin: "0 auto 24px auto", fontSize: "0.95rem", lineHeight: "1.6", color: "var(--text-secondary)", textAlign: "center" }}>
+            <p style={{ maxWidth: "620px", margin: "0 auto 24px auto", fontSize: "1.02rem", lineHeight: "1.6", color: "var(--text-secondary)", textAlign: "center" }}>
               {isEs 
                 ? "Una plataforma de asistencia inteligente para inquilinos y pequeños propietarios de California. Entienda sus derechos, verifique el cumplimiento normativo y resuelva conflictos de alquiler antes de que escalen."
                 : "A mobile-first AI assistant for California tenants and small landlords. Navigate eviction notices, calculate lawful rent increases, and draft formal responses before issues escalate."}
