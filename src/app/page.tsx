@@ -47,6 +47,13 @@ export default function Home() {
     }
   }, []);
 
+  // Always reset scroll position to top whenever view or active tab changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [view, activeTab]);
+
   const handleRoleChange = (newRole: "tenant" | "landlord") => {
     setRole(newRole);
     localStorage.setItem("hsa_role", newRole);
@@ -73,12 +80,14 @@ export default function Home() {
     setTriggeredLetterDetails(details);
     setTriggeredLetterSubject(subject);
     setActiveTab("letter");
+    window.scrollTo(0, 0);
   };
 
   const navigateToPortal = (selectedRole: "tenant" | "landlord") => {
     handleRoleChange(selectedRole);
     setView("portal");
     localStorage.setItem("hsa_view", "portal");
+    window.scrollTo(0, 0);
   };
 
   const handleFeatureClick = (tabId: string, targetRole?: "tenant" | "landlord") => {
@@ -88,12 +97,13 @@ export default function Home() {
     setActiveTab(tabId);
     setView("portal");
     localStorage.setItem("hsa_view", "portal");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo(0, 0);
   };
 
   const navigateToLanding = () => {
     setView("landing");
     localStorage.setItem("hsa_view", "landing");
+    window.scrollTo(0, 0);
   };
 
   if (!mounted) {
