@@ -81,6 +81,16 @@ export default function Home() {
     localStorage.setItem("hsa_view", "portal");
   };
 
+  const handleFeatureClick = (tabId: string, targetRole?: "tenant" | "landlord") => {
+    if (targetRole) {
+      handleRoleChange(targetRole);
+    }
+    setActiveTab(tabId);
+    setView("portal");
+    localStorage.setItem("hsa_view", "portal");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const navigateToLanding = () => {
     setView("landing");
     localStorage.setItem("hsa_view", "landing");
@@ -289,7 +299,7 @@ export default function Home() {
               {isEs ? "Explore todo lo que nuestro asistente inteligente puede hacer por usted:" : "Discover how the application balances housing regulatory asymmetries:"}
             </p>
             <div className="feature-grid">
-              <div className="card">
+              <div className="card clickable-feature-card" onClick={() => handleFeatureClick("notice", "tenant")}>
                 <h3 style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <ShieldAlert size={18} style={{ color: "var(--accent)" }} />
                   {isEs ? "Intérprete de Avisos" : "Notice Interpreter"}
@@ -297,9 +307,12 @@ export default function Home() {
                 <p style={{ fontSize: "0.85rem" }}>
                   {isEs ? "Analice plazos de aviso de desalojo (3, 30, 60, 90 días) y encuentre defectos normativos obligatorios." : "Parse rental documents, check legal response dates, and audit mandatory advisories."}
                 </p>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "var(--accent)", marginTop: "12px" }}>
+                  {isEs ? "Abrir Intérprete" : "Open Interpreter"} <ArrowRight size={14} />
+                </div>
               </div>
 
-              <div className="card">
+              <div className="card clickable-feature-card" onClick={() => handleFeatureClick("rent")}>
                 <h3 style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Calculator size={18} style={{ color: "var(--accent)" }} />
                   {isEs ? "Validador de Renta" : "Rent Cap Calculator"}
@@ -307,19 +320,25 @@ export default function Home() {
                 <p style={{ fontSize: "0.85rem" }}>
                   {isEs ? "Valide topes según el ARO de San José (5%) o el límite de California AB 1482 (8.8% para la Bahía)." : "Validate rent increases using statewide AB 1482 formulas or San Jose local ARO ordinances."}
                 </p>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "var(--accent)", marginTop: "12px" }}>
+                  {isEs ? "Abrir Calculadora" : "Open Calculator"} <ArrowRight size={14} />
+                </div>
               </div>
 
-              <div className="card">
+              <div className="card clickable-feature-card" onClick={() => handleFeatureClick("lease", "landlord")}>
                 <h3 style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <FileText size={18} style={{ color: "var(--accent)" }} />
+                  <FileText size={18} style={{ color: "#34d399" }} />
                   {isEs ? "Generador de Contratos" : "CA Lease Generator"}
                 </h3>
                 <p style={{ fontSize: "0.85rem" }}>
                   {isEs ? "Cree contratos de arrendamiento residenciales con topes de depósito AB 12 y divulgaciones de ley AB 1482." : "Generate CA-compliant lease agreements with AB 1482 disclosures and AB 12 deposit limits."}
                 </p>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "#34d399", marginTop: "12px" }}>
+                  {isEs ? "Crear Contrato" : "Create Lease"} <ArrowRight size={14} />
+                </div>
               </div>
 
-              <div className="card">
+              <div className="card clickable-feature-card" onClick={() => handleFeatureClick("letter")}>
                 <h3 style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <FileSignature size={18} style={{ color: "var(--accent)" }} />
                   {isEs ? "Redactor de Cartas" : "Legal Letter Generator"}
@@ -327,9 +346,12 @@ export default function Home() {
                 <p style={{ fontSize: "0.85rem" }}>
                   {isEs ? "Genere comunicados y disputas de habitabilidad o rentas injustas pulidas por IA para imprimir." : "Draft and polish print-ready letters (habitability requests, rent disputes, entry notices) using AI."}
                 </p>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "var(--accent)", marginTop: "12px" }}>
+                  {isEs ? "Redactar Carta" : "Draft Letter"} <ArrowRight size={14} />
+                </div>
               </div>
 
-              <div className="card">
+              <div className="card clickable-feature-card" onClick={() => handleFeatureClick("timeline")}>
                 <h3 style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Clock size={18} style={{ color: "var(--accent)" }} />
                   {isEs ? "Bitácora Escrita" : "Timeline Builder"}
@@ -337,6 +359,9 @@ export default function Home() {
                 <p style={{ fontSize: "0.85rem" }}>
                   {isEs ? "Registre eventos cronológicamente (fugas, textos, pagos) para generar reportes ante defensa legal." : "Log rental events (harassment, water leaks, letters) to compile chronological evidence reports."}
                 </p>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "var(--accent)", marginTop: "12px" }}>
+                  {isEs ? "Ver Bitácora" : "Open Timeline"} <ArrowRight size={14} />
+                </div>
               </div>
             </div>
           </section>
@@ -421,7 +446,7 @@ export default function Home() {
             </div>
           </header>
 
-          <div className={`no-print portal-main-content ${activeTab === "lease" ? "wide-tab" : ""}`} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "20px" }}>
+          <div className={`no-print portal-main-content ${activeTab === "lease" ? "wide-tab" : ""}`} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "16px" }}>
             <div>
               <h1 style={{ fontSize: "1.4rem", margin: 0 }}>
                 {role === "tenant" ? (isEs ? "Portal del Inquilino" : "Tenant Portal") : (isEs ? "Portal del Arrendador" : "Landlord Portal")}
@@ -443,6 +468,20 @@ export default function Home() {
             >
               {role === "tenant" ? (isEs ? "Inquilino" : "Tenant") : (isEs ? "Arrendador" : "Landlord")}
             </span>
+          </div>
+
+          {/* Mobile Quick Tab Navigation Strip */}
+          <div className="tabs-nav mobile-only no-print" style={{ marginBottom: "16px" }}>
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.icon}
+                {tab.label}
+              </button>
+            ))}
           </div>
 
           {/* Portal Main Views */}

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeaseLink - Official Marketing Flyer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #080c14;
+      color: #f9fafb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .flyer-card {
+      width: 100%;
+      max-width: 800px;
+      background: linear-gradient(145deg, #0d1222 0%, #050810 100%);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(99, 102, 241, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flyer-card::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .flyer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .brand-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 40%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-tagline {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .internship-badge {
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #a5b4fc;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.775rem;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .flyer-hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .hero-heading {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtext {
+      font-size: 1rem;
+      color: #9ca3af;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .feature-column {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .column-tenant {
+      border-left: 4px solid #6366f1;
+    }
+
+    .column-landlord {
+      border-left: 4px solid #10b981;
+    }
+
+    .column-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tenant-title { color: #818cf8; }
+    .landlord-title { color: #34d399; }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-item {
+      font-size: 0.875rem;
+      color: #d1d5db;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .feature-item::before {
+      content: '✓';
+      font-weight: 800;
+      color: #818cf8;
+    }
+
+    .column-landlord .feature-item::before {
+      color: #34d399;
+    }
+
+    .flyer-footer {
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 18px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .url-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .url-label {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .url-link {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .qr-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .qr-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      background: #ffffff;
+      padding: 4px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+      .flyer-card {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 2px solid #000000 !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+      }
+      .brand-title, .hero-heading, .url-link {
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
+      }
+      .feature-column {
+        background: #f9fafb !important;
+        border: 1px solid #d1d5db !important;
+      }
+      .feature-item, .hero-subtext, .brand-tagline {
+        color: #374151 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flyer-card">
+    <!-- Header -->
+    <div class="flyer-header">
+      <div class="brand-group">
+        <img src="/logo.png" alt="LeaseLink Logo" class="brand-logo" />
+        <div>
+          <h1 class="brand-title">LeaseLink</h1>
+          <p class="brand-tagline">Connecting tenants and landlords for stable housing.</p>
+        </div>
+      </div>
+      <div class="internship-badge">
+        Growth Sector Summer Internship<br/>
+        × San José State University (SJSU)
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="flyer-hero">
+      <h2 class="hero-heading">Balanced Housing Stability & Legal Compliance</h2>
+      <p class="hero-subtext">
+        A mobile-first AI assistant for California tenants and small landlords. Navigate eviction notices, calculate lawful rent caps, generate CA lease agreements, and draft formal legal letters.
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="features-grid">
+      <!-- Tenant Features -->
+      <div class="feature-column column-tenant">
+        <h3 class="column-title tenant-title">🛡️ For Tenants</h3>
+        <ul class="feature-list">
+          <li class="feature-item"><strong>Eviction Notice Audit:</strong> Scan notices for illegal flaws and exact response deadlines.</li>
+          <li class="feature-item"><strong>Rent Increase Validator:</strong> Calculate AB 1482 (8.8%) and San Jose ARO (5%) legal caps.</li>
+          <li class="feature-item"><strong>Repair Request Generator:</strong> Auto-draft formal habitability letters under CA Civil Code § 1941.1.</li>
+          <li class="feature-item"><strong>Tenancy Evidence Log:</strong> Maintain a timestamped chronological log for legal aid defense.</li>
+        </ul>
+      </div>
+
+      <!-- Landlord Features -->
+      <div class="feature-column column-landlord">
+        <h3 class="column-title landlord-title">⚖️ For Small Landlords</h3>
+        <ul class="feature-list">
+          <li class="feature-item"><strong>CA Lease Agreement Generator:</strong> Create full leases with AB 1482 & AB 12 deposit limit disclosures.</li>
+          <li class="feature-item"><strong>Notice Compliance Checker:</strong> Ensure written notices meet mandatory statutory language.</li>
+          <li class="feature-item"><strong>Rent Cap Calculator:</strong> Verify lawful annual rent adjustments before serving notices.</li>
+          <li class="feature-item"><strong>24-Hour Entry Notices:</strong> Draft legally compliant property entry reminders under Civ. Code § 1954.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer URL & QR -->
+    <div class="flyer-footer">
+      <div class="url-group">
+        <span class="url-label">Access the Web App Free Anywhere:</span>
+        <a href="https://www.leaselink.app" target="_blank" class="url-link">www.leaselink.app</a>
+      </div>
+      <div class="qr-group">
+        <div style="font-size: 0.8rem; color: #9ca3af; text-align: right; font-weight: 600;">
+          Scan to Open<br/>LeaseLink
+        </div>
+        <img src="/leaselink_qr_print.png" alt="LeaseLink QR Code" class="qr-image" />
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

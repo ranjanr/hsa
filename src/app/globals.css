@@ -507,6 +507,24 @@ p {
   margin-top: 40px;
 }
 
+.clickable-feature-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clickable-feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 36px -10px rgba(var(--accent-rgb), 0.3);
+}
+
+.clickable-feature-card:active {
+  transform: translateY(-2px);
+}
+
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
