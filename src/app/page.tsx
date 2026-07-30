@@ -29,65 +29,87 @@ export default function Home() {
   const [triggeredLetterDetails, setTriggeredLetterDetails] = useState("");
   const [triggeredLetterSubject, setTriggeredLetterSubject] = useState("");
 
-  // Load preferences from localStorage on mount
+  // Helper functions for safe localStorage operations on restricted school devices
+  const safeGetItem = (key: string): string | null => {
+    try {
+      if (typeof window !== "undefined" && window.localStorage) {
+        return localStorage.getItem(key);
+      }
+    } catch (e) {
+      console.warn("Storage access restricted:", key);
+    }
+    return null;
+  };
+
+  const safeSetItem = (key: string, value: string) => {
+    try {
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem(key, value);
+      }
+    } catch (e) {
+      console.warn("Storage write restricted:", key);
+    }
+  };
+
+  // Load preferences from localStorage on mount safely
   useEffect(() => {
     setMounted(true);
-    if (typeof window !== "undefined") {
-      const storedRole = localStorage.getItem("hsa_role") as "tenant" | "landlord";
-      const storedLang = localStorage.getItem("hsa_language") as "en" | "es";
-      const storedRegion = localStorage.getItem("hsa_region") as any;
-      const storedKey = localStorage.getItem("gemini_api_key") || "";
-      const storedView = localStorage.getItem("hsa_view") as "landing" | "portal";
+    const storedRole = safeGetItem("hsa_role") as "tenant" | "landlord" | null;
+    const storedLang = safeGetItem("hsa_language") as "en" | "es" | null;
+    const storedRegion = safeGetItem("hsa_region") as any;
+    const storedKey = safeGetItem("gemini_api_key") || "";
+    const storedView = safeGetItem("hsa_view") as "landing" | "portal" | null;
 
-      if (storedRole) setRole(storedRole);
-      if (storedLang) setLanguage(storedLang);
-      if (storedRegion) setRegion(storedRegion);
-      if (storedKey) setApiKey(storedKey);
-      if (storedView) setView(storedView);
-    }
+    if (storedRole) setRole(storedRole);
+    if (storedLang) setLanguage(storedLang);
+    if (storedRegion) setRegion(storedRegion);
+    if (storedKey) setApiKey(storedKey);
+    if (storedView) setView(storedView);
   }, []);
 
   // Always reset scroll position to top whenever view or active tab changes
   useEffect(() => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    try {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    } catch (e) {}
   }, [view, activeTab]);
 
   const handleRoleChange = (newRole: "tenant" | "landlord") => {
     setRole(newRole);
-    localStorage.setItem("hsa_role", newRole);
+    safeSetItem("hsa_role", newRole);
     setTriggeredLetterDetails("");
     setTriggeredLetterSubject("");
   };
 
   const handleLanguageChange = (newLang: "en" | "es") => {
     setLanguage(newLang);
-    localStorage.setItem("hsa_language", newLang);
+    safeSetItem("hsa_language", newLang);
   };
 
   const handleRegionChange = (newRegion: "sanjose" | "sf" | "oakland" | "other_ca") => {
     setRegion(newRegion);
-    localStorage.setItem("hsa_region", newRegion);
+    safeSetItem("hsa_region", newRegion);
   };
 
   const handleApiKeyChange = (newKey: string) => {
     setApiKey(newKey);
-    localStorage.setItem("gemini_api_key", newKey);
+    safeSetItem("gemini_api_key", newKey);
   };
 
   const handleTriggerLetter = (details: string, subject: string) => {
     setTriggeredLetterDetails(details);
     setTriggeredLetterSubject(subject);
     setActiveTab("letter");
-    window.scrollTo(0, 0);
+    try { window.scrollTo(0, 0); } catch (e) {}
   };
 
   const navigateToPortal = (selectedRole: "tenant" | "landlord") => {
     handleRoleChange(selectedRole);
     setView("portal");
-    localStorage.setItem("hsa_view", "portal");
-    window.scrollTo(0, 0);
+    safeSetItem("hsa_view", "portal");
+    try { window.scrollTo(0, 0); } catch (e) {}
   };
 
   const handleFeatureClick = (tabId: string, targetRole?: "tenant" | "landlord") => {
@@ -96,14 +118,14 @@ export default function Home() {
     }
     setActiveTab(tabId);
     setView("portal");
-    localStorage.setItem("hsa_view", "portal");
-    window.scrollTo(0, 0);
+    safeSetItem("hsa_view", "portal");
+    try { window.scrollTo(0, 0); } catch (e) {}
   };
 
   const navigateToLanding = () => {
     setView("landing");
-    localStorage.setItem("hsa_view", "landing");
-    window.scrollTo(0, 0);
+    safeSetItem("hsa_view", "landing");
+    try { window.scrollTo(0, 0); } catch (e) {}
   };
 
   if (!mounted) {

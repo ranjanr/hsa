@@ -15,14 +15,22 @@ export interface NoticeAnalysis {
 export function useGemini() {
   const getApiKey = () => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("gemini_api_key") || "";
+      try {
+        return localStorage.getItem("gemini_api_key") || "";
+      } catch (e) {
+        return "";
+      }
     }
     return "";
   };
 
   const setApiKey = (key: string) => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("gemini_api_key", key);
+      try {
+        localStorage.setItem("gemini_api_key", key);
+      } catch (e) {
+        // Ignore storage errors on restricted devices
+      }
     }
   };
 
