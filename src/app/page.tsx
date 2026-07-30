@@ -10,6 +10,7 @@ import TimelineBuilder from "@/components/TimelineBuilder";
 import ResourceNavigator from "@/components/ResourceNavigator";
 import RepairsNavigator from "@/components/RepairsNavigator";
 import LeaseGenerator from "@/components/LeaseGenerator";
+import FeedbackModal from "@/components/FeedbackModal";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
   const [apiKey, setApiKey] = useState("");
   const [activeTab, setActiveTab] = useState("notice");
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Cross-tab interaction states
@@ -176,6 +178,14 @@ export default function Home() {
             </div>
             
             <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+              <button 
+                className="btn btn-secondary" 
+                onClick={() => setFeedbackOpen(true)}
+                style={{ width: "auto", padding: "6px 14px", fontSize: "0.8rem", height: "36px", borderRadius: "18px", display: "inline-flex", alignItems: "center", gap: "6px", borderColor: "rgba(99, 102, 241, 0.3)", color: "var(--accent)" }}
+              >
+                <MessageSquare size={14} />
+                {isEs ? "Opinión" : "Feedback"}
+              </button>
               <select 
                 className="form-select" 
                 style={{ width: "120px", padding: "6px 10px", fontSize: "0.8rem", height: "36px" }}
@@ -398,8 +408,25 @@ export default function Home() {
             </div>
           </section>
 
+          {/* User Feedback & Ratings Section */}
+          <section style={{ marginTop: "50px", background: "linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.08) 100%)", border: "1px solid rgba(99, 102, 241, 0.25)", borderRadius: "var(--radius-lg)", padding: "28px 24px", textAlign: "center" }}>
+            <div style={{ background: "rgba(99, 102, 241, 0.2)", width: "48px", height: "48px", borderRadius: "12px", display: "inline-flex", alignItems: "center", justifyContent: "center", marginBottom: "12px", color: "var(--accent)" }}>
+              <MessageSquare size={24} />
+            </div>
+            <h2 style={{ fontSize: "1.35rem", marginBottom: "8px", fontWeight: "700" }}>
+              {isEs ? "¿Tiene comentarios sobre LeaseLink?" : "Have Feedback for LeaseLink?"}
+            </h2>
+            <p style={{ maxWidth: "550px", margin: "0 auto 18px auto", fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+              {isEs ? "Agradecemos sus opiniones, reportes de errores y sugerencias de funciones para seguir haciendo la vivienda más justa y accesible." : "We value your thoughts, feature ideas, and feedback to help us build a better housing stability platform."}
+            </p>
+            <button className="btn btn-primary" onClick={() => setFeedbackOpen(true)} style={{ width: "auto", padding: "10px 24px", display: "inline-flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
+              <MessageSquare size={16} />
+              {isEs ? "Enviar Opinión o Comentario" : "Submit Your Feedback"}
+            </button>
+          </section>
+
           {/* Landing Footer */}
-          <Footer language={language} />
+          <Footer language={language} onOpenFeedback={() => setFeedbackOpen(true)} />
         </div>
       ) : (
         /* Portal Dashboard Layout */
@@ -438,6 +465,15 @@ export default function Home() {
             </div>
 
             <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+              <button 
+                className="btn btn-secondary desktop-only" 
+                onClick={() => setFeedbackOpen(true)}
+                style={{ width: "auto", padding: "6px 12px", fontSize: "0.8rem", height: "34px", borderRadius: "17px", display: "inline-flex", alignItems: "center", gap: "6px", borderColor: "rgba(99, 102, 241, 0.3)", color: "var(--accent)" }}
+              >
+                <MessageSquare size={14} />
+                {isEs ? "Opinión" : "Feedback"}
+              </button>
+
               {/* Desktop exit portal */}
               <button 
                 onClick={navigateToLanding}
@@ -562,7 +598,7 @@ export default function Home() {
           </main>
 
           {/* Reusable Rich Footer */}
-          <Footer language={language} />
+          <Footer language={language} onOpenFeedback={() => setFeedbackOpen(true)} />
 
           {/* Mobile Navigation Drawer */}
           {mobileMenuOpen && (
@@ -616,6 +652,18 @@ export default function Home() {
                 <button 
                   className="btn btn-secondary" 
                   onClick={() => {
+                    setFeedbackOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{ display: "flex", gap: "6px", fontSize: "0.85rem", justifyContent: "flex-start", color: "var(--accent)", borderColor: "rgba(99, 102, 241, 0.3)" }}
+                >
+                  <MessageSquare size={14} />
+                  {isEs ? "Enviar Opinión" : "Give Feedback"}
+                </button>
+
+                <button 
+                  className="btn btn-secondary" 
+                  onClick={() => {
                     setSettingsOpen(true);
                     setMobileMenuOpen(false);
                   }}
@@ -648,10 +696,17 @@ export default function Home() {
         onClose={() => setSettingsOpen(false)}
         apiKey={apiKey}
         onApiKeyChange={handleApiKeyChange}
-        region={region}
-        onRegionChange={handleRegionChange}
         language={language}
         onLanguageChange={handleLanguageChange}
+        region={region}
+        onRegionChange={handleRegionChange}
+      />
+
+      {/* Feedback Form Modal */}
+      <FeedbackModal 
+        isOpen={feedbackOpen}
+        onClose={() => setFeedbackOpen(false)}
+        language={language}
       />
     </div>
   );

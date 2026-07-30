@@ -5,9 +5,10 @@ import { ExternalLink, GraduationCap, Building2 } from "lucide-react";
 
 interface FooterProps {
   language: "en" | "es";
+  onOpenFeedback?: () => void;
 }
 
-export default function Footer({ language }: FooterProps) {
+export default function Footer({ language, onOpenFeedback }: FooterProps) {
   const isEs = language === "es";
 
   return (
@@ -70,6 +71,16 @@ export default function Footer({ language }: FooterProps) {
         <div className="footer-col">
           <h3>{isEs ? "Enlaces de Ayuda" : "Quick Support"}</h3>
           <ul>
+            {onOpenFeedback && (
+              <li>
+                <button 
+                  onClick={onOpenFeedback} 
+                  style={{ background: "none", border: "none", color: "#a5b4fc", cursor: "pointer", padding: 0, font: "inherit", fontWeight: "600", textDecoration: "underline" }}
+                >
+                  {isEs ? "💬 Enviar Opinión o Comentario" : "💬 Submit User Feedback"}
+                </button>
+              </li>
+            )}
             <li>
               <a href="https://www.lawfoundation.org" target="_blank" rel="noopener noreferrer">
                 {isEs ? "Fundación Legal de Silicon Valley" : "Law Foundation of Silicon Valley"}
