@@ -228,16 +228,10 @@ export default function Home() {
             {/* Dynamic Rotating Action Phrase Ticker */}
             <ActionPhraseTicker language={language} />
 
-            <p style={{ maxWidth: "680px", margin: "16px auto 24px auto", fontSize: "1.02rem", lineHeight: "1.7", color: "var(--text-secondary)", textAlign: "center" }}>
-              {isEs ? (
-                <>
-                  Una plataforma de asistencia inteligente para inquilinos y pequeños propietarios de California. <span className="animated-action-word">Navegar avisos de desalojo</span>, <span className="animated-action-word">calcular aumentos de renta legales</span> y <span className="animated-action-word">redactar respuestas formales</span> antes de que escalen los conflictos.
-                </>
-              ) : (
-                <>
-                  A mobile-first AI assistant for California tenants and small landlords. <span className="animated-action-word">Navigate eviction notices</span>, <span className="animated-action-word">calculate lawful rent increases</span>, and <span className="animated-action-word">draft formal responses</span> before issues escalate.
-                </>
-              )}
+            <p style={{ maxWidth: "620px", margin: "12px auto 24px auto", fontSize: "1.02rem", lineHeight: "1.6", color: "var(--text-secondary)", textAlign: "center" }}>
+              {isEs 
+                ? "Una plataforma de asistencia inteligente para inquilinos y pequeños propietarios de California. Navegue avisos de desalojo, calcule aumentos de renta legales y redacte respuestas formales antes de que escalen los conflictos."
+                : "A mobile-first AI assistant for California tenants and small landlords. Navigate eviction notices, calculate lawful rent increases, and draft formal responses before issues escalate."}
             </p>
           </section>
 
@@ -255,16 +249,10 @@ export default function Home() {
                 <h2 style={{ fontSize: "1.4rem", marginBottom: "8px", fontWeight: "700" }}>
                   {isEs ? "Soy Inquilino" : "I am a Tenant"}
                 </h2>
-                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: "1.6" }}>
-                  {isEs ? (
-                    <>
-                      <span className="animated-action-word">Interpretar avisos de desalojo</span>, <span className="animated-action-word">validar límites de renta (AB 1482 / ARO)</span>, <span className="animated-action-word">registrar reparaciones</span> y buscar programas de ayuda legal.
-                    </>
-                  ) : (
-                    <>
-                      <span className="animated-action-word">Interpret confusing eviction notices</span>, <span className="animated-action-word">validate rent increase limits (AB 1482 / San Jose ARO)</span>, <span className="animated-action-word">log repairs</span>, and search assistance programs.
-                    </>
-                  )}
+                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+                  {isEs 
+                    ? "Interprete avisos de desalojo confusos, valide límites de aumento de renta (AB 1482 / ARO), registre reparaciones y busque programas de ayuda."
+                    : "Interpret confusing eviction notices, validate rent increase limits (AB 1482 / San Jose ARO), log repairs, and search assistance programs."}
                 </p>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", color: "#818cf8", zIndex: 1, marginTop: "20px" }}>
@@ -285,16 +273,10 @@ export default function Home() {
                 <h2 style={{ fontSize: "1.4rem", marginBottom: "8px", fontWeight: "700" }}>
                   {isEs ? "Soy Arrendador" : "I am a Landlord"}
                 </h2>
-                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: "1.6" }}>
-                  {isEs ? (
-                    <>
-                      <span className="animated-action-word animated-action-word-landlord">Generar contratos residenciales en CA</span>, <span className="animated-action-word animated-action-word-landlord">auditar texto de avisos legales</span> y <span className="animated-action-word animated-action-word-landlord">verificar aumentos de renta máximos</span>.
-                    </>
-                  ) : (
-                    <>
-                      <span className="animated-action-word animated-action-word-landlord">Generate CA-compliant lease agreements</span>, <span className="animated-action-word animated-action-word-landlord">audit notice text for compliance</span>, and <span className="animated-action-word animated-action-word-landlord">verify maximum allowable rent increases</span>.
-                    </>
-                  )}
+                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+                  {isEs 
+                    ? "Genere contratos de arrendamiento residenciales en CA, audite el texto de avisos para cumplimiento legal y verifique aumentos de renta máximos."
+                    : "Generate CA-compliant lease agreements, audit your notice text for legal compliance, and verify maximum allowable rent increases."}
                 </p>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", color: "#34d399", zIndex: 1, marginTop: "20px" }}>
@@ -369,16 +351,8 @@ export default function Home() {
                   <ShieldAlert size={18} style={{ color: "var(--accent)" }} />
                   {isEs ? "Intérprete de Avisos" : "Notice Interpreter"}
                 </h3>
-                <p style={{ fontSize: "0.85rem", lineHeight: "1.6" }}>
-                  {isEs ? (
-                    <>
-                      <span className="animated-action-word">Analizar documentos de desalojo</span>, <span className="animated-action-word">verificar fechas de respuesta</span> y auditar defectos legales.
-                    </>
-                  ) : (
-                    <>
-                      <span className="animated-action-word">Parse rental documents</span>, <span className="animated-action-word">check legal response dates</span>, and <span className="animated-action-word">audit mandatory advisories</span>.
-                    </>
-                  )}
+                <p style={{ fontSize: "0.85rem" }}>
+                  {isEs ? "Analice plazos de aviso de desalojo (3, 30, 60, 90 días) y encuentre defectos normativos obligatorios." : "Parse rental documents, check legal response dates, and audit mandatory advisories."}
                 </p>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "var(--accent)", marginTop: "12px" }}>
                   {isEs ? "Abrir Intérprete" : "Open Interpreter"} <ArrowRight size={14} />
@@ -390,16 +364,8 @@ export default function Home() {
                   <Calculator size={18} style={{ color: "var(--accent)" }} />
                   {isEs ? "Validador de Renta" : "Rent Cap Calculator"}
                 </h3>
-                <p style={{ fontSize: "0.85rem", lineHeight: "1.6" }}>
-                  {isEs ? (
-                    <>
-                      <span className="animated-action-word">Validar aumentos de renta</span> usando fórmulas estatales AB 1482 u ordenanzas locales ARO de San José.
-                    </>
-                  ) : (
-                    <>
-                      <span className="animated-action-word">Validate rent increases</span> using statewide AB 1482 formulas or San Jose local ARO ordinances.
-                    </>
-                  )}
+                <p style={{ fontSize: "0.85rem" }}>
+                  {isEs ? "Valide topes según el ARO de San José (5%) o el límite de California AB 1482 (8.8% para la Bahía)." : "Validate rent increases using statewide AB 1482 formulas or San Jose local ARO ordinances."}
                 </p>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "var(--accent)", marginTop: "12px" }}>
                   {isEs ? "Abrir Calculadora" : "Open Calculator"} <ArrowRight size={14} />
@@ -411,16 +377,8 @@ export default function Home() {
                   <FileText size={18} style={{ color: "#34d399" }} />
                   {isEs ? "Generador de Contratos" : "CA Lease Generator"}
                 </h3>
-                <p style={{ fontSize: "0.85rem", lineHeight: "1.6" }}>
-                  {isEs ? (
-                    <>
-                      <span className="animated-action-word animated-action-word-landlord">Generar contratos residenciales en CA</span> con divulgaciones AB 1482 y límites AB 12.
-                    </>
-                  ) : (
-                    <>
-                      <span className="animated-action-word animated-action-word-landlord">Generate CA-compliant lease agreements</span> with AB 1482 disclosures and AB 12 deposit limits.
-                    </>
-                  )}
+                <p style={{ fontSize: "0.85rem" }}>
+                  {isEs ? "Cree contratos de arrendamiento residenciales con topes de depósito AB 12 y divulgaciones de ley AB 1482." : "Generate CA-compliant lease agreements with AB 1482 disclosures and AB 12 deposit limits."}
                 </p>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "#34d399", marginTop: "12px" }}>
                   {isEs ? "Crear Contrato" : "Create Lease"} <ArrowRight size={14} />
@@ -432,16 +390,8 @@ export default function Home() {
                   <FileSignature size={18} style={{ color: "var(--accent)" }} />
                   {isEs ? "Redactor de Cartas" : "Legal Letter Generator"}
                 </h3>
-                <p style={{ fontSize: "0.85rem", lineHeight: "1.6" }}>
-                  {isEs ? (
-                    <>
-                      <span className="animated-action-word">Redactar y pulir cartas formales</span> (habitabilidad, disputas de renta, avisos de entrada) listas para imprimir.
-                    </>
-                  ) : (
-                    <>
-                      <span className="animated-action-word">Draft and polish print-ready letters</span> (habitability requests, rent disputes, entry notices) using AI.
-                    </>
-                  )}
+                <p style={{ fontSize: "0.85rem" }}>
+                  {isEs ? "Genere comunicados y disputas de habitabilidad o rentas injustas pulidas por IA para imprimir." : "Draft and polish print-ready letters (habitability requests, rent disputes, entry notices) using AI."}
                 </p>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "var(--accent)", marginTop: "12px" }}>
                   {isEs ? "Redactar Carta" : "Draft Letter"} <ArrowRight size={14} />
@@ -453,16 +403,8 @@ export default function Home() {
                   <Clock size={18} style={{ color: "var(--accent)" }} />
                   {isEs ? "Bitácora Escrita" : "Timeline Builder"}
                 </h3>
-                <p style={{ fontSize: "0.85rem", lineHeight: "1.6" }}>
-                  {isEs ? (
-                    <>
-                      <span className="animated-action-word">Registrar eventos cronológicos</span> (acoso, fugas de agua, mensajes) para generar reportes probatorios.
-                    </>
-                  ) : (
-                    <>
-                      <span className="animated-action-word">Log rental events</span> (harassment, water leaks, letters) to compile chronological evidence reports.
-                    </>
-                  )}
+                <p style={{ fontSize: "0.85rem" }}>
+                  {isEs ? "Registre eventos cronológicamente (fugas, textos, pagos) para generar reportes ante defensa legal." : "Log rental events (harassment, water leaks, letters) to compile chronological evidence reports."}
                 </p>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", fontSize: "0.8rem", color: "var(--accent)", marginTop: "12px" }}>
                   {isEs ? "Ver Bitácora" : "Open Timeline"} <ArrowRight size={14} />
