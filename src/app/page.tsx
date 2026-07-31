@@ -161,8 +161,8 @@ export default function Home() {
         /* Landing Page Layout */
         <div className="landing-container animated-fade-in">
           {/* Header */}
-          <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+          <header className="landing-header">
+            <div className="landing-header-logo-group" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
               <img 
                 src="/logo.png" 
                 alt="LeaseLink Logo" 
@@ -178,18 +178,19 @@ export default function Home() {
               </div>
             </div>
             
-            <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <div className="landing-header-controls">
               <button 
                 className="btn btn-secondary" 
                 onClick={() => setFeedbackOpen(true)}
-                style={{ width: "auto", padding: "6px 14px", fontSize: "0.8rem", height: "36px", borderRadius: "18px", display: "inline-flex", alignItems: "center", gap: "6px", borderColor: "rgba(99, 102, 241, 0.3)", color: "var(--accent)" }}
+                title={isEs ? "Opinión" : "Feedback"}
+                style={{ width: "auto", padding: "6px 12px", fontSize: "0.8rem", height: "36px", borderRadius: "18px", display: "inline-flex", alignItems: "center", gap: "6px", borderColor: "rgba(99, 102, 241, 0.3)", color: "var(--accent)", flexShrink: 0 }}
               >
                 <MessageSquare size={14} />
-                {isEs ? "Opinión" : "Feedback"}
+                <span className="btn-feedback-text">{isEs ? "Opinión" : "Feedback"}</span>
               </button>
               <select 
                 className="form-select" 
-                style={{ width: "120px", padding: "6px 10px", fontSize: "0.8rem", height: "36px" }}
+                style={{ width: "115px", padding: "6px 8px", fontSize: "0.8rem", height: "36px", flexShrink: 0 }}
                 value={language} 
                 onChange={(e) => handleLanguageChange(e.target.value as any)}
               >
@@ -198,6 +199,7 @@ export default function Home() {
               </select>
               <button 
                 onClick={() => setSettingsOpen(true)}
+                title={isEs ? "Configuraciones" : "Settings"}
                 style={{ 
                   background: "var(--panel-bg)", 
                   border: "1px solid var(--panel-border)", 
@@ -209,6 +211,7 @@ export default function Home() {
                   justifyContent: "center", 
                   color: "var(--text-primary)", 
                   cursor: "pointer",
+                  flexShrink: 0
                 }}
               >
                 <Settings size={18} />

@@ -106,6 +106,65 @@ body {
   padding: 40px 24px;
 }
 
+/* Responsive Landing Header */
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 12px;
+}
+
+.landing-header-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 16px 12px;
+    overflow-x: hidden;
+  }
+
+  .landing-header {
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .landing-header-logo-group {
+    gap: 8px !important;
+  }
+
+  .landing-header-logo-group img {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .landing-header-logo-group h1 {
+    font-size: 1.65rem !important;
+  }
+
+  .landing-header-logo-group p {
+    font-size: 0.925rem !important;
+  }
+
+  .landing-header-controls {
+    gap: 5px !important;
+  }
+
+  .landing-header-controls .form-select {
+    width: 95px !important;
+    padding: 5px 4px !important;
+    font-size: 0.775rem !important;
+  }
+
+  .landing-header-controls .btn-feedback-text {
+    display: none;
+  }
+}
+
 /* Portal Main Content Form & Card Width Constraint */
 .portal-main-content {
   max-width: 740px;
